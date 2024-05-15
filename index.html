@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h6 style="text-align: center;"> الاسم</h6>
+    <form>
+        <fieldset>
+            <legend>Q1</legend>
+            N: <input type="number" value="" name="" id="N">
+            <input type="button" value="Print shape" onclick="print_shape()"> <br>
+            Answer: <br>
+            <textarea id="textarea"></textarea>
+
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>Q2</legend>
+            A: <input type="text" id="A"> B: <input type="text" name="" id="B"> <input type="button" value="Print Count"
+                onclick="PrintCount()"> <br>
+            <p style="border: 10px solid black;" id="paragraph">paragraph X</p>
+        </fieldset>
+    </form>
+    <script>
+        function print_shape() {
+            var n = parseInt(document.getElementById('N').value);
+            var shape = "";
+            if (n % 2 == 0) n++;
+            for (var i = 1; i <= n; i++) {
+                for (var j = 1; j <= n; j++) {
+                    if (j == 1 || j == n || i == Math.ceil(n / 2)) {
+                        var r = Math.floor(Math.random() * 6);
+                        shape += r;
+                    }
+                    else
+                        shape += " "
+                }
+                shape += "\n";
+            }
+            document.getElementById('textarea').innerHTML = shape;
+        }
+
+
+        function PrintCount() {
+            var a = parseInt(document.getElementById('A').value);
+            var b = parseInt(document.getElementById('B').value);
+            var inp1 = " ";
+
+            while (a <= b) {
+
+                inp1 += "count of 3's in" + a + "=" + parseInt(a / 3);
+                inp1 += "<br>";
+                a++;
+            }
+            document.getElementById('paragraph').innerHTML = inp1;
+
+        }
+    </script>
+</body>
+
+</html>
